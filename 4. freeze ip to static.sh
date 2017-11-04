@@ -2,10 +2,10 @@
 #we need if config and unfortunately debian doesn't install this by default
 sudo apt-get install net-tools
 #https://stackoverflow.com/a/13322549/1839484
-staticip="($hostname -I)"
+staticip=`hostname -I`
 #the cut command is nice, get the 13th item from a space delimited list starting with the line found from grep, netmask
-netmask="($ifconfig enp0s3 | grep netmask | cut -d ' ' -f 13)"
-routerip="($ip route | grep default | cut -d ' ' -f 3)"
+netmask=`ifconfig enp0s3 | grep netmask | cut -d ' ' -f 13`
+routerip=`ip route | grep default | cut -d ' ' -f 3`
 
 getinfo()
 {
