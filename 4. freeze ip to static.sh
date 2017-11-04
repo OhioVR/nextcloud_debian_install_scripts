@@ -68,3 +68,4 @@ while true; do
         * ) echo "Pleas enter y or n!";;
   esac
 done
+echo "don't forget to forward your 443 and 80 ports in your router before proceeding"
