@@ -9,6 +9,7 @@ and it works like a champ. I'm building a collection of scripts to help automate
 The things I'm interested in are full text search and collabora which aren't implimented yet.
 
 just install git if you haven't already then go into a directory and type
+
 git clone https://github.com/OhioVR/nextcloud_debian_install_scripts.git
 
 then execute each script in numerical order
