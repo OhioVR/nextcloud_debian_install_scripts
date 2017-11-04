@@ -25,19 +25,26 @@ sudo apt-get install k4dirstat
 
 
 
-
+clear
+clear
 # login user name. Change this!
 read -p "enter your user name: " nc_user
 #nc_user='ENTERYOURNAME'
 
+clear
+clear
 # login user password. Change this!
 read -p "enter your user password: " nc_pw
 #nc_pw='ENTERYOURPASSWORD'
 
+clear
+clear
 # Enter your domain name for nextcloud ie dingdong.com
 read -p "enter your domain name: " domainname
 #domainname='ENTERYOURDOMAINNAME'
 
+clear
+clear
 # email for vhost and cert.
 read -p "enter your email address for vhost and cert: " email
 #email='email@example.com'
@@ -308,6 +315,11 @@ mv 989100 whitelist.conf
 # You can monitor tail -f /var/log/apache2/modsec_audit.log
 systemctl reload apache2
 
+
+echo "type yes to activate SSL (don't type yes if you are developing and worried about burning out your certificates..)"
+read activate
+if [ $activate = yes ]
+then
 ## Setup SSL using Lets Encrypt
 apt-get install python-certbot-apache -y
 
@@ -319,3 +331,4 @@ crontab -l > certbot
 echo '0 0 * * 0 /usr/bin/certbot renew' >> certbot
 crontab certbot
 rm certbot
+fi
