@@ -27,19 +27,19 @@ sudo apt-get install k4dirstat
 
 
 # login user name. Change this!
-read -p "enter your user name" nc_user
+read -p "enter your user name: " nc_user
 #nc_user='ENTERYOURNAME'
 
 # login user password. Change this!
-read -p "enter your user password" nc_pw
+read -p "enter your user password: " nc_pw
 #nc_pw='ENTERYOURPASSWORD'
 
 # Enter your domain name for nextcloud ie dingdong.com
-read -p "enter your domain name" domainname
+read -p "enter your domain name: " domainname
 #domainname='ENTERYOURDOMAINNAME'
 
 # email for vhost and cert.
-read -p "enter your email address for vhost and cert" email
+read -p "enter your email address for vhost and cert: " email
 #email='email@example.com'
 
 # Change to version of NextCloud to download if not latest.
