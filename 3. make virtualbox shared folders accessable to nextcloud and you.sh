@@ -7,4 +7,4 @@ sudo usermod -a -G vboxsf $userName
 sudo usermod -a -G vboxsf www-data
 clear
 clear
-echo "after restarting you can view your shared folders and so can www-data which is apache's user"
+echo "after log off and on you can view your shared folders and so can www-data which is apache's user"
