@@ -42,7 +42,7 @@ wget -q "$SOLR_DL" --show-progress
 tar -zxf "$SOLR_RELEASE"
 clear
 echo "2.1"
-if "./solr-$SOLR_VERSION/bin/install_solr_service.sh" "$SOLR_RELEASE"
+if "./solr-$SOLR_VERSION/bin/install_solr_service.sh" "$SOLR_RELEASE &"
 then
   clear
   echo "2.2"
