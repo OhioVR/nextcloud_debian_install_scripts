@@ -40,7 +40,7 @@ mkdir -p "$SOLR_HOME"
 check_command cd "$SOLR_HOME"
 wget -q "$SOLR_DL" --show-progress
 tar -zxf "$SOLR_RELEASE"
-if "./solr-$SOLR_VERSION/bin/install_solr_service.sh" "$SOLR_RELEASE"
+if "bash | ./solr-$SOLR_VERSION/bin/install_solr_service.sh" "$SOLR_RELEASE"
 then
     rm -rf "${SOLR_HOME:?}/$SOLR_RELEASE"
     wget -q https://raw.githubusercontent.com/apache/lucene-solr/master/solr/bin/install_solr_service.sh -P $SCRIPTS/
