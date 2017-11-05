@@ -15,13 +15,18 @@ SOLR_HOME=/home/$SUDO_USER/solr_install/
 SOLR_JETTY=/opt/solr/server/etc/jetty-http.xml
 SOLR_DSCONF=/opt/solr-$SOLR_VERSION/server/solr/configsets/data_driven_schema_configs/conf/solrconfig.xml
 
+echo $NEXTANT_INSTALL
+echo $NEXTANT_VERSION
+
+
+
 # Tech and Me © - 2017, https://www.techandme.se/
 
 # shellcheck disable=2034,2059
-true
+#true
 # shellcheck source=lib.sh
-NEXTANT_INSTALL=1 . <(curl -sL https://raw.githubusercontent.com/nextcloud/vm/master/lib.sh)
-unset NEXTANT_INSTALL
+#NEXTANT_INSTALL=1 . <(curl -sL https://raw.githubusercontent.com/nextcloud/vm/master/lib.sh)
+#unset NEXTANT_INSTALL
 
 # Check for errors + debug code and abort if something isn't right
 # 1 = ON
