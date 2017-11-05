@@ -1,4 +1,32 @@
 #!/bin/bash
+
+check_command() {
+  if ! eval "$*"
+  then
+     printf "${IRed}Sorry but something went wrong. Please report this issue to $ISSUES and include the output of the error message. Thank you!${Color_Off}\n"
+     echo "$* failed"
+    exit 1
+  fi
+}
+
+debug_mode() {
+if [ "$DEBUG" -eq 1 ]
+then
+    set -ex
+fi
+}
+
+is_root() {
+    if [[ "$EUID" -ne 0 ]]
+    then
+        return 1
+    else
+        return 0
+    fi
+}
+
+
+
 apt-get install curl
 NCPATH=/var/www/vhosts/nextcloud
 
@@ -106,30 +134,3 @@ check_command sudo -u www-data php $NCPATH/occ nextant:test http://127.0.0.1:898
 check_command sudo -u www-data php $NCPATH/occ nextant:index
 clear
 echo "9"
-
-
-
-check_command() {
-  if ! eval "$*"
-  then
-     printf "${IRed}Sorry but something went wrong. Please report this issue to $ISSUES and include the output of the error message. Thank you!${Color_Off}\n"
-     echo "$* failed"
-    exit 1
-  fi
-}
-
-debug_mode() {
-if [ "$DEBUG" -eq 1 ]
-then
-    set -ex
-fi
-}
-
-is_root() {
-    if [[ "$EUID" -ne 0 ]]
-    then
-        return 1
-    else
-        return 0
-    fi
-}
