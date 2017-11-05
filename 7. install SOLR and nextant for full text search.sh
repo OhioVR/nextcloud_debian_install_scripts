@@ -20,44 +20,9 @@ echo $NEXTANT_VERSION
 
 
 
-# Tech and Me © - 2017, https://www.techandme.se/
-
-# shellcheck disable=2034,2059
-#true
-# shellcheck source=lib.sh
-#NEXTANT_INSTALL=1 . <(curl -sL https://raw.githubusercontent.com/nextcloud/vm/master/lib.sh)
-#unset NEXTANT_INSTALL
-
-# Check for errors + debug code and abort if something isn't right
-# 1 = ON
-# 0 = OFF
-DEBUG=0
-debug_mode
 
 # Solr Server & Nextant App Installation
 
-# Must be root
-if ! is_root
-then
-    echo "Must be root to run script, in Ubuntu type: sudo -i"
-    exit 1
-fi
-
-# Make sure there is an Nextcloud installation
-if ! [ "$(sudo -u www-data php $NCPATH/occ -V)" ]
-then
-    echo "It seems there is no Nextcloud server installed, please check your installation."
-    exit 1
-fi
-
-# Check if it's a clean install
-if [ -d "$SOLR_HOME" ]
-then
-    echo
-    echo "It seems like $SOLR_HOME already exists. Have you already run this script?"
-    echo "If yes, revert all the settings and try again, it must be a clean install."
-    exit 1
-fi
 
 echo "Starting to setup Solr & Nextant on Nextcloud..."
 
