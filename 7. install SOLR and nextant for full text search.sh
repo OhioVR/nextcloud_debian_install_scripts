@@ -94,13 +94,13 @@ iptables -A INPUT -p tcp --dport 8983 -j DROP
 
 clear
 echo "4"
-if service solr start
-then
+#if service solr start
+#then
     sudo -u solr /opt/solr/bin/solr create -c nextant
-else
-    echo "Solr failed to start, something is wrong with the Solr installation"
-    exit 1
-fi
+#else
+#    echo "Solr failed to start, something is wrong with the Solr installation"
+  #  exit 1
+#fi
 clear
 echo "4"
 # Add search suggestions feature
@@ -117,7 +117,7 @@ echo "5"
 check_command "echo \"SOLR_OPTS=\\\"\\\$SOLR_OPTS -Dsolr.allow.unsafe.resourceloading=true\\\"\" | sudo tee -a /etc/default/solr.in.sh"
 clear
 echo "6"
-check_command service solr restart
+#check_command service solr restart
 clear
 echo "7"
 # Get nextant app for nextcloud
