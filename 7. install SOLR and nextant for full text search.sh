@@ -1,4 +1,5 @@
 #!/bin/bash
+apt-get install curl
 NCPATH=/var/www/vhosts/nextcloud
 
 # Nextant
@@ -55,7 +56,7 @@ iptables -A INPUT -p tcp --dport 8983 -j DROP
 #sudo service iptables-persistent start
 #sudo iptables-save > /etc/iptables.conf
 
-if service solr start
+if bash | service solr start
 then
     sudo -u solr /opt/solr/bin/solr create -c nextant
 else
