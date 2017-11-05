@@ -42,18 +42,21 @@ wget -q "$SOLR_DL" --show-progress
 tar -zxf "$SOLR_RELEASE"
 clear
 echo "2.1"
-if "./solr-$SOLR_VERSION/bin/install_solr_service.sh" "$SOLR_RELEASE &"
-then
-  clear
-  echo "2.2"
-    rm -rf "${SOLR_HOME:?}/$SOLR_RELEASE"
-    wget -q https://raw.githubusercontent.com/apache/lucene-solr/master/solr/bin/install_solr_service.sh -P $SCRIPTS/
-else
-  clear
-  echo "2.3"
-    echo "Solr failed to install, something is wrong with the Solr installation"
-    exit 1
-fi
+#if "./solr-$SOLR_VERSION/bin/install_solr_service.sh" "$SOLR_RELEASE"
+#then
+#  clear
+#  echo "2.2"
+#    rm -rf "${SOLR_HOME:?}/$SOLR_RELEASE"
+#    wget -q https://raw.githubusercontent.com/apache/lucene-solr/master/solr/bin/install_solr_service.sh -P $SCRIPTS/
+#else
+#  clear
+#  echo "2.3"
+#    echo "Solr failed to install, something is wrong with the Solr installation"
+#    exit 1
+#fi
+
+./solr-$SOLR_VERSION/bin/install_solr_service.sh $SOLR_RELEASE &
+
 clear
 echo "3"
 sudo sed -i '35,37  s/"jetty.host" \//"jetty.host" default="127.0.0.1" \//' $SOLR_JETTY
@@ -63,7 +66,7 @@ iptables -A INPUT -p tcp --dport 8983 -j DROP
 
 clear
 echo "4"
-if bash | service solr start
+if service solr start
 then
     sudo -u solr /opt/solr/bin/solr create -c nextant
 else
