@@ -315,7 +315,8 @@ mv 989100 whitelist.conf
 # You can monitor tail -f /var/log/apache2/modsec_audit.log
 systemctl reload apache2
 
-
+clear
+clear
 echo "type yes to activate SSL (don't type yes if you are developing and worried about burning out your certificates..)"
 read activate
 if [ $activate = yes ]
@@ -332,3 +333,4 @@ echo '0 0 * * 0 /usr/bin/certbot renew' >> certbot
 crontab certbot
 rm certbot
 fi
+echo "you might want to restart the vm to make sure there is no funk in there"
