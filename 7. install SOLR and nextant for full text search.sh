@@ -40,11 +40,17 @@ mkdir -p "$SOLR_HOME"
 check_command cd "$SOLR_HOME"
 wget -q "$SOLR_DL" --show-progress
 tar -zxf "$SOLR_RELEASE"
-if "bash | ./solr-$SOLR_VERSION/bin/install_solr_service.sh" "$SOLR_RELEASE"
+clear
+echo "2.1"
+if "./solr-$SOLR_VERSION/bin/install_solr_service.sh" "$SOLR_RELEASE"
 then
+  clear
+  echo "2.2"
     rm -rf "${SOLR_HOME:?}/$SOLR_RELEASE"
     wget -q https://raw.githubusercontent.com/apache/lucene-solr/master/solr/bin/install_solr_service.sh -P $SCRIPTS/
 else
+  clear
+  echo "2.3"
     echo "Solr failed to install, something is wrong with the Solr installation"
     exit 1
 fi
