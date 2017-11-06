@@ -2,15 +2,19 @@ NC_APPS_PATH=/var/www/vhosts/nextcloud/apps/
 NT_DL=https://github.com/nextcloud/nextant/releases/download/v1.0.7/nextant-1.0.7.tar.gz
 NT_RELEASE=nextant-1.0.7.tar.gz
 NCPATH=/var/www/vhosts/nextcloud/
-SOLR_DSCONF=/opt/solr-7.1.0/server/solr/configsets/_default/conf
+#SOLR_DSCONF=/opt/solr-$SOLR_VERSION/server/solr/configsets/data_driven_schema_configs/conf/solrconfig.xml
+SOLR_DSCONF=/opt/solr-solr-6.6.2/server/solr/configsets/data_driven_schema_configs/conf/solrconfig.xml
 SOLR_JETTY=/opt/solr/server/etc/jetty-http.xml
 
 echo "1"
-wget -q http://apache.claz.org/lucene/solr/7.1.0/solr-7.1.0.tgz --show-progress
+#wget -q http://apache.claz.org/lucene/solr/7.1.0/solr-7.1.0.tgz --show-progress
+wget -q http://apache.claz.org/lucene/solr/6.6.2/solr-6.6.2.tgz --show-progress
 echo "2"
-tar -zxf solr-7.1.0.tgz
+#tar -zxf solr-7.1.0.tgz
+tar -zxf solr-6.6.2.tgz
 echo "3"
-bash ./solr-7.1.0/bin/install_solr_service.sh solr-7.1.0.tgz &
+#bash ./solr-7.1.0/bin/install_solr_service.sh solr-7.1.0.tgz &
+bash ./solr-6.6.2/bin/install_solr_service.sh solr-6.6.2.tgz &
 echo "(going to sleep for 20 seconds to wait for solr to start up)"
 sleep 20
 
