@@ -1,7 +1,7 @@
 NC_APPS_PATH=/var/www/vhosts/nextcloud/apps/
 NT_DL=https://github.com/nextcloud/nextant/releases/download/v1.0.7/nextant-1.0.7.tar.gz
 NT_RELEASE=nextant-1.0.7.tar.gz
-NCPATH=/var/www/vhosts/nextcloud/
+NCPATH=/var/www/vhosts/nextcloud
 #SOLR_DSCONF=/opt/solr-$SOLR_VERSION/server/solr/configsets/data_driven_schema_configs/conf/solrconfig.xml
 SOLR_DSCONF=/opt/solr/server/solr/configsets/data_driven_schema_configs/conf/solrconfig.xml
 SOLR_JETTY=/opt/solr/server/etc/jetty-http.xml
