@@ -20,17 +20,17 @@ sleep 20
 
 
 
-clear
+
 echo "4"
 sudo sed -i '35,37  s/"jetty.host" \//"jetty.host" default="127.0.0.1" \//' $SOLR_JETTY
 
 iptables -A INPUT -p tcp -s localhost --dport 8983 -j ACCEPT
 iptables -A INPUT -p tcp --dport 8983 -j DROP
 
-clear
+
 echo "5"
 sudo -u solr /opt/solr/bin/solr create -c nextant
-clear
+
 echo "6"
 # Add search suggestions feature
 sed -i '2i <!DOCTYPE config [' "$SOLR_DSCONF"
@@ -41,13 +41,13 @@ sed -i '$d' "$SOLR_DSCONF" | sed -i '$d' "$SOLR_DSCONF"
 echo "
 &nextant_component;
 </config>" | tee -a "$SOLR_DSCONF"
-clear
+
 echo "7"
 echo "SOLR_OPTS=\"\$SOLR_OPTS -Dsolr.allow.unsafe.resourceloading=true\"" | sudo tee -a /etc/default/solr.in.sh
-clear
+
 echo "8"
 service solr restart
-clear
+
 echo "9"
 
 
