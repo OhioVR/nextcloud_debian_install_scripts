@@ -73,7 +73,6 @@ echo "9"
 wget -q -P "$NC_APPS_PATH" "$NT_DL" --show-progress
 cd "$NC_APPS_PATH"
 tar zxf "$NT_RELEASE"
-clear
 echo "10"
 # Enable Nextant
 rm -r "$NT_RELEASE"
@@ -81,5 +80,4 @@ sudo -u www-data php $NCPATH/occ app:enable nextant
 chown -R www-data:www-data $NCPATH/apps
 sudo -u www-data php $NCPATH/occ nextant:test http://127.0.0.1:8983/solr/ nextant --save
 sudo -u www-data php $NCPATH/occ nextant:index
-clear
 echo "done, see if you can do full text searches now"
