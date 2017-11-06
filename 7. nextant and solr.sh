@@ -1,12 +1,12 @@
-echo 1
+echo "1"
 wget -q http://apache.claz.org/lucene/solr/7.1.0/solr-7.1.0.tgz --show-progress
-echo 2
+echo "2"
 tar -zxf solr-7.1.0.tgz
-echo 3
+echo "3"
 bash ./solr-7.1.0/bin/install_solr_service.sh solr-7.1.0.tgz &
-echo 4 (going to sleep for 10 seconds)
-sleep 10
-echo 5
+echo "(going to sleep for 20 seconds to wait for solr to start up)"
+sleep 20
+echo "5"
 sudo -u solr /opt/solr/bin/solr create -c nextant
 
 NC_APPS_PATH=/var/www/vhosts/nextcloud/apps/
@@ -24,4 +24,5 @@ sudo -u www-data php $NCPATH/occ app:enable nextant
 chown -R www-data:www-data $NCPATH/apps
 sudo -u www-data php $NCPATH/occ nextant:test http://127.0.0.1:8983/solr/ nextant --save
 sudo -u www-data php $NCPATH/occ nextant:index
+clear
 echo "done, see if you can do full text searches now"
