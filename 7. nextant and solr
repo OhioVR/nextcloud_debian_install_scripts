@@ -1,8 +1,0 @@
-echo 1
-wget -q http://apache.claz.org/lucene/solr/7.1.0/solr-7.1.0.tgz --show-progress
-echo 2
-tar -zxf solr-7.1.0.tgz
-echo 3
-bash ./solr-7.1.0/bin/install_solr_service.sh solr-7.1.0.tgz
-echo 4
-sudo -u solr /opt/solr/bin/solr create -c nextant
