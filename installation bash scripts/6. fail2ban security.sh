@@ -8,7 +8,7 @@
 # GPL licensed (see end of file) * Use at your own risk!
 
 
-ACTIVE_=no
+ACTIVE_=yes
 
 # time to ban an IP that exceeded attempts
 BANTIME_=600
@@ -77,7 +77,7 @@ configure()
   sudo -u www-data touch "$NCLOG" || { echo -e "ERROR: user www-data does not have write permissions on $NCLOG"; return 1; }
   chown -R www-data "$BASEDIR"
 
-  cd /var/www/nextcloud
+  cd /var/www/vhosts/nextcloud/
   sudo -u www-data php occ config:system:set loglevel --value=2
   sudo -u www-data php occ config:system:set log_type --value=file
 
@@ -139,6 +139,9 @@ EOF
   service fail2ban restart
   echo "fail2ban enabled"
 }
+
+install
+configure
 
 # License
 #
