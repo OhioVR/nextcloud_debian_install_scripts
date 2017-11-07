@@ -62,8 +62,8 @@ sudo -u www-data php $NCPATH/occ app:enable nextant
 chown -R www-data:www-data $NCPATH/apps
 sudo -u www-data php $NCPATH/occ nextant:test http://127.0.0.1:8983/solr/ nextant --save
 sudo -u www-data php $NCPATH/occ nextant:index
+reset
 rm -rf solr-6.6.2
 rm -r solr-6.6.2.tgz
 
 echo "done, see if you can do full text searches now"
-exit 1
