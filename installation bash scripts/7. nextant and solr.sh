@@ -53,8 +53,9 @@ echo "SOLR_OPTS=\"\$SOLR_OPTS -Dsolr.allow.unsafe.resourceloading=true\"" | sudo
 service solr restart
 
 wget -q -P "$NC_APPS_PATH" "$NT_DL" --show-progress
-cd "$NC_APPS_PATH"
-tar zxf "$NT_RELEASE"
+#cd "$NC_APPS_PATH"
+#tar zxf "$NT_RELEASE"
+tar zxf $NC_APPS_PATH$NT_RELEASE
 echo "10"
 # Enable Nextant
 rm -r "$NT_RELEASE"
@@ -67,3 +68,4 @@ rm -rf solr-6.6.2
 rm -r solr-6.6.2.tgz
 
 echo "done, see if you can do full text searches now"
+exit 1
