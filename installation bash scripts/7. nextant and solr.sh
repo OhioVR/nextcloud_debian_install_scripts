@@ -52,10 +52,13 @@ echo "SOLR_OPTS=\"\$SOLR_OPTS -Dsolr.allow.unsafe.resourceloading=true\"" | sudo
 
 service solr restart
 
+rm -rf solr-6.6.2
+rm -r solr-6.6.2.tgz
+rm -rf nextant
+
 wget -q -P "$NC_APPS_PATH" "$NT_DL" --show-progress
-#cd "$NC_APPS_PATH"
-#tar zxf "$NT_RELEASE"
-tar zxf $NC_APPS_PATH$NT_RELEASE
+cd "$NC_APPS_PATH"
+tar zxf "$NT_RELEASE"
 echo "10"
 # Enable Nextant
 rm -r "$NT_RELEASE"
@@ -64,8 +67,5 @@ chown -R www-data:www-data $NCPATH/apps
 sudo -u www-data php $NCPATH/occ nextant:test http://127.0.0.1:8983/solr/ nextant --save
 sudo -u www-data php $NCPATH/occ nextant:index
 reset
-rm -rf solr-6.6.2
-rm -r solr-6.6.2.tgz
-
 echo "done, see if you can do full text searches now"
 exit 1
