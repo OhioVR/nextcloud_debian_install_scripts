@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt-get install tesseract-ocr
 echo "tesseract optical charactor recognition installed"
 sleep 1

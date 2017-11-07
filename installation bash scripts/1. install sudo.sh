@@ -1,4 +1,5 @@
 #sudo needs to be installed!
+#!/bin/bash
 apt-get install sudo
 echo "type in the user name you wish to add to sudoer"
 read userName

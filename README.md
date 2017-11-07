@@ -15,3 +15,5 @@ git clone https://github.com/OhioVR/nextcloud_debian_install_scripts.git
 then execute each script in numerical order
 
 pay attention to restart instructions in each one
+
+if you are not a developer I woulnd't bother with this project right now however up to script 5 it is working pretty good
