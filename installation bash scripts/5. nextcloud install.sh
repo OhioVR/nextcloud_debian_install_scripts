@@ -1,6 +1,4 @@
 #!/bin/sh
-#install a real desktop
-sudo tasksel install xfce-desktop
 #install k4dirstat which works similar to treesize
 sudo apt-get install k4dirstat
 

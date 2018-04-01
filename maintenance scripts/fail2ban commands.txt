@@ -1,0 +1,5 @@
+#remove a ban
+sudo fail2ban-client set nextcloud unbanip THEIPADDRESSYOUWISHTOUNBAN
+
+#see who has been banned
+sudo fail2ban-client reload
