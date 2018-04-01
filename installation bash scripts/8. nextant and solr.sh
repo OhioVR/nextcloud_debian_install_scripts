@@ -6,9 +6,9 @@ NCPATH=/var/www/vhosts/nextcloud
 SOLR_DSCONF=/opt/solr/server/solr/configsets/data_driven_schema_configs/conf/solrconfig.xml
 SOLR_JETTY=/opt/solr/server/etc/jetty-http.xml
 
-wget -q http://apache.claz.org/lucene/solr/6.6.2/solr-6.6.2.tgz --show-progress
-tar -zxf solr-6.6.2.tgz
-bash ./solr-6.6.2/bin/install_solr_service.sh solr-6.6.2.tgz &
+wget -q http://apache.claz.org/lucene/solr/6.6.3/solr-6.6.3.tgz --show-progress
+tar -zxf solr-6.6.3.tgz
+bash ./solr-6.6.3/bin/install_solr_service.sh solr-6.6.3.tgz &
 count=0
 while ! timeout 1 bash -c "echo > /dev/tcp/localhost/8983"; do
 clear
